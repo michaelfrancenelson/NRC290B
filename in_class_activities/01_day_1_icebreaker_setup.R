@@ -1,19 +1,7 @@
----
-title: "First day activity"
-output: html_notebook
-editor_options: 
-  chunk_output_type: inline
----
-
-```{r setup, include = F}
 require(data.table)
 require(ggplot2)
 
 
-```
-
-
-```{r experiment setup}
 
 n_tables = 10
 mean_plot_size = 4
@@ -35,15 +23,5 @@ data[, dotchart(pine_counts, xlab = "Number of pines", ylab = "Sample Plot ID", 
 data[, dotchart(pine_density, xlab = "Pines per hectare", ylab = "Sample Plot ID", labels = 1:nrow(data))]
 
 
-```
-
-
-
-```{r salamander counts}
-
-
-
-
-```
 
 

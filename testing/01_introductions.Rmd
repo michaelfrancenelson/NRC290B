@@ -62,3 +62,4 @@ the test variable contains
 
 
 [test_img1]: `r paste0(image_path, "test_img_01.png")` "me"
+
