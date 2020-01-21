@@ -1,8 +1,16 @@
 require(data.table)
 require(ggplot2)
 
+rm(list = ls())
 
+
+# dat = fread("in_class_activities/quab_master.csv")
 dat = fread("in_class_activities/quab.csv")
+
+
+# take a look at the data:
+dat
+
 
 
 # Normalize by plot area ----
