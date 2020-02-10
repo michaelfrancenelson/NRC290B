@@ -1,0 +1,303 @@
+---
+title: "Data Recording, Excel, and R (Oh my!)"
+author: |
+  | Introduction to Quantitative Ecology
+  | Fall 2018
+  | Chris Sutherland
+  | csutherland@umass.edu
+
+header-includes:
+   - \usepackage{tabto}
+   - \usepackage{verbatim}
+   - \usepackage{amsmath}
+   - \usepackage{mathtools}
+   - \usepackage{graphicx}
+   - \usepackage{tikz}
+   - \usepackage{tikzpagenodes}
+   - \definecolor{OG}{RGB}{0,64,8}
+   - \definecolor{LG}{RGB}{0,102,51}
+   - \definecolor{myRed}{RGB}{228,26,28}
+   - \definecolor{myBlue}{RGB}{55,126,184}
+   - \definecolor{myGreen}{RGB}{77,175,74}
+   - \definecolor{myPurple}{RGB}{152,78,163}
+   - \setbeamercolor{itemize item}{fg=white!0!LG}
+   - \setbeamercolor{enumerate item}{fg=white!0!LG}
+   - \setbeamercolor{enumerate subitem}{fg=white!70!LG}
+   - \setbeamercolor{itemize subitem}{fg=white!70!LG}   
+   - \setbeamercolor{itemize subsubitem}{fg=white!70!LG}   
+   - \setbeamercolor{navigation symbols}{fg=white!70!LG, bg=white!70!LG}
+   - \usepackage{inputenc}
+   - \usepackage{booktabs}
+   - \usepackage{caption}
+   - \usetikzlibrary{patterns,arrows,decorations.pathreplacing}
+   - \usepackage{setspace}
+   - \DeclareGraphicsExtensions{.pdf,.png,.jpg,.gif}
+   - \usepackage{fixmath}
+   - \usepackage{tabto}
+   - \usepackage{arydshln}
+   - \graphicspath{{"G:/Dropbox/C/Courses class/NRC290b/NRC_290b_2018/Images/Recording/"}, {"C:/Users/csutherland/Dropbox/C/Courses class/NRC290b/NRC_290b_2018/Images/Recording/"}}
+
+output:
+  beamer_presentation:
+    highlight: tango
+    theme: "default"
+    colortheme: "spruce"
+    fonttheme: "serif"
+    slide_level: 2
+    incremental: false
+urlcolor: blue
+classoption: t
+---
+
+```{r setup, echo=FALSE, results='hide', message=FALSE}
+library(knitr)
+opts_knit$set(root.dir = "G:/Dropbox/C/Courses class/NRC290b/NRC_290b_2018/")
+#opts_knit$set(root.dir = "C:/Users/csutherland/Dropbox/C/Courses class/NRC290b/NRC_290b_2018")
+
+opts_chunk$set(prompt = FALSE, comment = NA, mysize=TRUE, size="\\scriptsize")
+hook1 <- function(x){ gsub("```\n*```r*\n*", "", x) }
+hook2 <- function(x){ gsub("```\n+```\n", "", x) }
+knit_hooks$set(document = hook2)
+knitr::knit_hooks$set(mysize = function(before, options, envir) {
+  if (before) 
+    return(options$size)
+})
+```
+
+
+## Group task - design a spreadsheet
+
+A study is designed to evaluate observer accuracy for guesstimating the number of whales in a marine protected area (MPA), and to quantify 'anchoring bias'.
+
+## Group task - design a spreadsheet
+
+A study is designed to evaluate observer accuracy for guesstimating the number of whales in a marine protected area (MPA), and to quantify 'anchoring bias'. The study goes like this:
+
+- each person looks at a snapshot of the MPA
+
+## Group task - design a spreadsheet
+
+A study is designed to evaluate observer accuracy for guesstimating the number of whales in a marine protected area (MPA), and to quantify 'anchoring bias'. The study goes like this:
+
+- each person looks at a snapshot of the MPA
+- based on the snapshot, observers say how many whales they think there are
+
+## Group task - design a spreadsheet
+
+A study is designed to evaluate observer accuracy for guesstimating the number of whales in a marine protected area (MPA), and to quantify 'anchoring bias'. The study goes like this:
+
+- each person looks at a snapshot of the MPA
+- based on the snapshot, observers say how many whales they think there are
+- after one round of this, we will compute a summary, and then show the sanpshot again
+
+## Group task - design a spreadsheet
+
+A study is designed to evaluate observer accuracy for guesstimating the number of whales in a marine protected area (MPA), and to quantify 'anchoring bias'. The study goes like this:
+
+- each person looks at a snapshot of the MPA
+- based on the snapshot, observers say how many whales they think there are
+- after one round of this, we will compute a summary, and then show the sanpshot again
+- each observer will provide a second updated guesstimate
+
+## Data recording
+
+What should we always record:
+
+- *who* recorded the data
+- *what* is the sampling unit
+- *where* was the data recorded
+- *when* was the data recorded
+
+## Data recording
+
+What should we always record:
+
+- *who* recorded the data
+- *what* is the sampling unit
+- *where* was the data recorded
+- *when* was the data recorded
+
+And of course:
+
+- the variable of interest (*dependent* variable)
+
+## Data recording
+
+Should always record:
+
+- *who* recorded the data
+- *what* is the sampling unit
+- *where* was the data recorded
+- *when* was the data recorded
+- the *dependent* variable
+
+Should also record *all* relevant info about th eobservation:
+
+- Factors that might explain variation in the *dependent* variable
+    - *independent* variables
+    - *explanatory* variables
+
+## Data entry task - some variations
+
+**Height**
+
+- kept the data in 5'4" format
+- converted height into inches, e.g., $5`4`` = 64$ inches
+- converted height into feet, e.g., $5`4`` =5.33$ ft
+
+## Data entry task - some variations
+
+**Height**
+
+**Eye Color**
+
+- entered *gr* as green
+- entered *gr* as gray
+- kept mixed abbreviated and full names
+
+## Data entry task - some variations
+
+**Height**
+
+**Eye Color**
+
+**Shoe Size**
+
+- shoe size kept in decimal form (e.g., 8.5)
+
+## Data entry task - some variations
+
+**Height**
+
+**Eye Color**
+
+**Shoe Size**
+
+**Transcribing**
+
+A badly written 6:
+
+- 6 (20), 8 (8), 1 (7), 4 (0), ? (1), illegible (1)
+
+## Let's design the spreadsheet - in Excel
+
+A study is designed to evaluate observer accuracy for guesstimating the number of whales in a marine protected area (MPA), and to quantify 'anchoring bias'. The study goes like this:
+
+- each person looks at a snapshot of the MPA
+- based on the snapshot, observers say how many whales they think there are
+- after one round of this, we will compute a summary, and then show the sanpshot again
+- each observer will provide a second updated guesstimate
+
+## How many whales?
+
+```{r, eval=FALSE,echo=FALSE,dev='svg'}
+library(emojifont)
+load.emojifont('OpenSansEmoji.ttf')
+pdf("Images/Recording/whales.pdf",width=5, height=3)
+par(mfrow=c(1,1),oma=c(0,0,0,0),mar=c(0,0,0,0), bg=adjustcolor(4,0.1))
+plot(0,0,type="n", axes=F,xlab="",ylab="",main="",xlim=c(0,1),ylim=c(0,1))
+xx <- runif(119,0,1)
+yy <- runif(119,0,1)
+text(xx, yy, labels=emoji("whale"), cex=1, col="darkblue", family='OpenSansEmoji')
+box(bty="o",lwd=2)
+dev.off()
+```
+
+\begin{tikzpicture}[remember picture,overlay]
+\node[xshift=0cm,yshift=-0.2cm] at (current page)
+{\includegraphics[height=3in]{whales.pdf}};
+\end{tikzpicture}
+
+## Comparison of whale counts
+
+There were two counting groups.I was interested in seeing whther the observation time window influenced observers ability tocorrectly *guess*timate the number of whales.
+
+- Section 1: 
+    - 10 seconds for first count
+    - further 10 seconds and information about previous counts for second count
+    - told about the anchoring effect
+
+- Section 1: 
+    - 10 seconds for first count
+    - further 10 seconds and information about previous counts for second count
+    - told about the anchoring effect
+
+## Comparison of whale counts: between groups
+
+```{r, echo=FALSE}
+library(ggplot2)
+library(ggthemes)
+whales <- read.csv("Data/whales.csv")
+whales$Round <- factor(whales$Round, levels=c("Pre","Post"))
+whales$Section <- factor(whales$Section, levels=c(1,2))
+
+ggwhale <- ggplot(whales) +
+  geom_boxplot(aes(x=factor(Section), y = Count, fill = Section)) +
+  facet_grid(~Round) + theme_minimal() + scale_color_hc() +
+  geom_abline(slope = 0, intercept = 119, color="blue", size = 1.5) +
+  theme(panel.border = element_rect(colour = "black", fill=NA, size=1)) +
+  xlab("Class Section") + ylab("Whale Counts")
+ggwhale
+```
+
+## Comparison of whale counts: between rounds
+
+```{r, echo=FALSE}
+ggwhale2 <- ggplot(whales) +
+  geom_boxplot(aes(x=factor(Round), y = Count, fill = Section)) +
+  facet_grid(~Section) + theme_minimal() + scale_color_hc() +
+  geom_abline(slope = 0, intercept = 119, color="blue", size = 1.5) +
+  theme(panel.border = element_rect(colour = "black", fill=NA, size=1)) +
+  xlab("Round") + ylab("Whale Counts")
+ggwhale2
+```
+
+## R Studio
+
+\begin{tikzpicture}[remember picture,overlay]
+\node[xshift=0cm,yshift=0cm] at (current page)
+{\includegraphics[height=3.2in]{rstudio.png}};
+\end{tikzpicture}
+
+## Getting to grips with R
+
+\vfill
+
+```{r, eval=F}
+#install the package
+# - a bit like we did for 'analysis tool pack'
+# - requires an internet connection
+install.packages("swirl")
+
+#Load the package
+# - it exists on the computer
+# - need to load it into the workspace to use it
+library(swirl)
+
+#Begin the tutorial :)
+swirl()
+
+#| When you are at the R prompt (>):
+#| -- Typing skip() allows you to skip the current question.
+#| -- Typing play() lets you experiment with R on your own; 
+#|      swirl will ignore what you do...
+#| -- UNTIL you type nxt() which will regain swirl's attention.
+#| -- Typing bye() causes swirl to exit. Your progress will be saved.
+#| -- Typing main() returns you to swirl's main menu.
+#| -- Typing info() displays these options again.
+```
+
+\vfill
+
+## Assignments
+
+Weekly reading assignemnt (deadline Sunday 23.55):
+
+- Read chapter 4 *Exploring data - looking at numbers*
+- Answer related individual assignemnt questions
+
+Swirl take home assignment (deadline Tuesday 23.55):
+
+- Complete all 14 swirl modules (**this can take up to 4 hrs**)
+- Take a screen capture of the \underline{last two questions of each module}
+- Paste into a word document & submit the word document
