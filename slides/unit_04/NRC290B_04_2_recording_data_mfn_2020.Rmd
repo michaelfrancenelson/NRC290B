@@ -20,6 +20,13 @@ output:
 
 ```{r setup, echo=FALSE, results='hide', message=FALSE}
 library(knitr)
+require(ggplot2)
+require(data.table)
+
+
+iris_dt = data.table(iris)
+
+
 # # opts_knit$set(root.dir = "G:/Dropbox/C/Courses class/NRC290b/NRC_290b_2018/")
 # #opts_knit$set(root.dir = "C:/Users/csutherland/Dropbox/C/Courses class/NRC290b/NRC_290b_2018")
 # 
@@ -34,48 +41,7 @@ library(knitr)
 ```
 
 
-
-
-# This Week
-Session 1
-
-* What happened last week?
-
-## Important pieces of data entry
-* What to record?
-* Who, what, where, when
-* Variable of interest (dependent)
-* Other variables (independent and explanatory)
-
-
-Plan to do data entry!
-Create all the necessary data entry sheets for Wednesday
-
-Wednesday
-Collecting and data entry exercise – outside!
-
-
-# Why do we sample?
-
-
-\begin{center}
-\includegraphics[width = 0.88\textwidth]{../slide_images/question_mark_green.png}
-\end{center}
-
-
-
-
-# Important aspects of data collection
-Which is NOT a reason to always collect: who, what, where, when with your other variables?
-
-
-\begin{enumerate}[A]
-\item It means you sampled correctly and without bias
-\item It allows the data to be used for multiple purposes
-\item It ensures that the data you collect can be checked for accuracy
-\item It means that you won’t forget some important aspect of the data
-\item It allows someone else to repeat the exercise exactly
-\end{enumerate}
+# iClicker questions
 
 
 
@@ -88,37 +54,61 @@ Which is NOT a reason to always collect: who, what, where, when with your other 
 
 
 
-# What to record:  The basics
-The basics:
-
-\begin{enumerate}
-\item Who recorded the data
-\item What is the sampling unit
-\item Where was the data recorded
-\item When was the data recorded
-\end{enumerate}
 
 
+# Distributions
 
-# What to record:  Variables
+Your Gardener book mentions the Normal distribution in chapter 4, but there is no prior discussion about what *distribution* means!
 
-Variables:
-\begin{enumerate}
-  \item Response Variable 
-  \begin{enumerate}
-    \item the variable of interest you are trying to estimate 
-    \item similar to/or sometimes called the “dependent variable”
-  \end{enumerate}
-  \item Explanatory Varibales
-  \begin{enumerate}
-    \item Variables that influence the response variable
-    \item similar to/or sometimes called the “independent variables” or “predictor variable”
-  \end{enumerate}
-\end{enumerate}
+What is a distribution?
+
+We're going to build an intuitive concept of a distribution from the ground up.
 
 
-# Linear model example
 
+
+# Distributions
+
+[example of variability with a real dataset]
+
+```{r}
+iris_dt[, sep_wid_jit := jitter(Sepal.Width)]
+iris_dt[, sep_len_jit := jitter(Sepal.Length)]
+iris_dt[, x_jit := jitter(rep(0, nrow(iris_dt)))]
+iris_dt
+
+```
+
+
+
+```{r}
+ggplot(iris_dt, aes(x = sep_wid_jit, y = x_jit)) + geom_point() + ylim(-0.1, 0.1) +
+  ylab("") + theme(axis.ticks.y = element_blank(), axis.text.y = element_blank())
+
+
+
+
+
+plot(
+  y = jitter(rep(0, nrow(iris))),
+  x = jitter(iris$Sepal.Length),
+  ylim = c(-0.1, 0.1),
+  
+  main = "Iris sepal widths")
+
+
+
+
+
+```
+
+
+
+
+
+
+
+# The Normal Distributions
 
 
 
