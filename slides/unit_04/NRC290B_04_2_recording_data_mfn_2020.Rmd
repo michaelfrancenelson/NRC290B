@@ -48,6 +48,18 @@ iris_dt
 # iClicker questions
 
 
+Which of the following are *not* one of the statistical concepts we have discussed in the last few lectures?
+
+\begin{enumerate}[A]
+\item statistics and parameters
+\item populations
+\item samples
+\item variance and standard deviation
+\item center and spread
+\end{enumerate}
+
+
+
 
 \begin{multicols}{2}
 \null \vfill
@@ -57,6 +69,12 @@ iris_dt
 \end{multicols}
 
 
+
+# Announcements
+
+No class on Tuesday!
+
+Chapter 4 has a lot of material.  I'm moving the due date for the pre-class reading assignments to Wednesday of next week (by midnight).
 
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Week 4: Data Management"
+title: "Week 5: Exploring Data"
 subtitle:  "Session 1"
 date: Spring 2020
 output: beamer_presentation
@@ -15,19 +15,25 @@ source(paste0(tmp, "/data/environment_vars.R"))
 rm(tmp)
 ```
 
+iClicker question template
+\begin{enumerate}[A]
+\item 
+\item 
+\item 
+\item 
+\item 
+\end{enumerate}
+
+
 
 # iClicker quiz: Question 1
 
-Your book mentioned several good reasons to collect information on who, what, where, when with your observations.
-
-Which of the following is NOT a reason to collect all of the Ws?
-
 \begin{enumerate}[A]
-\item It means you sampled correctly and without bias
-\item It allows the data to be used for multiple purposes
-\item It ensures that the data you collect can be checked for accuracy
-\item It means that you won’t forget some important aspect of the data
-\item It allows someone else to repeat the exercise exactly
+\item 
+\item 
+\item 
+\item 
+\item 
 \end{enumerate}
 
 
