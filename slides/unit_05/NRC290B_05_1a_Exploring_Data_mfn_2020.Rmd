@@ -3,39 +3,57 @@ title: "Week 5: Exploring Data"
 subtitle:  "Session 1"
 date: Spring 2020
 output: beamer_presentation
-header-includes: \usepackage{multicol}
+header-includes: 
+  \usepackage{multicol}
+  \definecolor{grn}{rgb}{0.0, 0.2, 0.0}
+
 ---
 
 ```{r setup, echo=FALSE, results='hide', message=FALSE}
 require(knitr)
-tmp = rprojroot::find_rstudio_root_file()
-knitr::opts_chunk$set(root.dir = tmp, error = TRUE)
-knitr::opts_knit$set(echo = TRUE, error = TRUE, root.dir = tmp)
-source(paste0(tmp, "/data/environment_vars.R"))
-rm(tmp)
+require(here)
+# tmp = rprojroot::find_rstudio_root_file()
+# knitr::opts_chunk$set(root.dir = tmp, error = TRUE)
+# knitr::opts_knit$set(echo = TRUE, error = TRUE, root.dir = tmp)
+source(here("data", "environment_vars.R"))
+# source(paste0(tmp, "/data/environment_vars.R"))
+# rm(tmp)
+
+
+custom_hist = function(x, y, xlab = "", ylab = "", main = "", col = 2)
+{
+  h = hist(1:(2 * length(x)), breaks = length(x), plot = FALSE)
+  
+  h$breaks = 2 * (0:length(x))
+  h$mids = 2 * (0:(length(x) - 1)) + 1
+  h$density = y
+  h$counts = y
+  plot(h, main = main, xlab = xlab, ylab = ylab, col = col, axes = F)
+}
+
+n_bins = 19
+x = seq(0, 1, length.out = n_bins)
+
+i = 1;
+
+
+
 ```
 
-iClicker question template
-\begin{enumerate}[A]
-\item 
-\item 
-\item 
-\item 
-\item 
-\end{enumerate}
 
 
+# iClicker quiz: Question `r colorize(i, "blue")` `r i = i + 1`
 
-# iClicker quiz: Question 1
+Which of the following appears Normally-distributed?
 
-\begin{enumerate}[A]
-\item 
-\item 
-\item 
-\item 
-\item 
-\end{enumerate}
-
+```{r, echo=FALSE, fig.width=4, fig.height=1.2}
+{
+par(mfrow = c(1, 3), mar = c(0, 0, 2, 0))
+custom_hist(x, dbeta(x, 7, 2), main = "A")
+custom_hist(x, dnorm(x, 0.5, 0.1), main = "B")
+custom_hist(x, dbeta(x, 2, 7), main = "C")
+}
+```
 
 \begin{multicols}{2}
 \null \vfill
@@ -47,15 +65,24 @@ iClicker question template
 
 
 
-# iClicker Quiz: Question 2
 
-Which of the following R concepts has been the most challenging or frustrating for you?
+
+# iClicker quiz: Question  `r colorize(i, "blue")` `r i = i + 1`
+
+What is the **median** value of the following sequence of numbers?
+
+14, 6, 8, 8, 21, 10, 9, 13, 5, 10, 5, 6, 14
+
+```{r, include = FALSE}
+median(c(14, 6, 8, 8, 21, 10, 9, 13, 5, 10, 5, 6, 14))
+```
 
 \begin{enumerate}[A]
-\item Loading data files into R
-\item Strings literals vs. variables
-\item Sequences and series
-\item Navigating swirl
+\item 11
+\item 9.5
+\item 8
+\item 9
+\item 10
 \end{enumerate}
 
 \begin{multicols}{2}
@@ -63,194 +90,259 @@ Which of the following R concepts has been the most challenging or frustrating f
 \vfill \null
 \columnbreak
 \includegraphics[width = 0.35\textwidth]{../slide_images/iClicker_logo.png}
+
 \end{multicols}
+
+
+# iClicker quiz: Question `r colorize(i, "blue")` `r i = i + 1`
+
+What is the **3rd Quartile**, also known as the **75th percentile**, rounded to the nearest integer, of the following sequence of numbers?
+
+`r colorize(paste0(0:12), "black")`
+```{r, include = FALSE}
+summary(0:12)
+quantile(0:12, 0.75)
+```
+
+
+\begin{enumerate}[A]
+\item 6
+\item 7
+\item 9
+\item 11
+\item 12
+\end{enumerate}
+
+\begin{multicols}{2}
+\null \vfill
+\vfill \null
+\columnbreak
+\includegraphics[width = 0.35\textwidth]{../slide_images/iClicker_logo.png}
+
+\end{multicols}
+
 
 
 
 
 # Announcements
 
-Questions from the salamander exercise:
 
+**`r colorize("Some students were not included in salamander description groups.", "red")`**
 
-SVL definition:
-Why is there a ‘$’ in mander
-Do the extimates of central tendency relate to the estimate of spread?
-What are 1st and 3rd quantiles?
-Loading files into R
+**`r colorize("Please verify your group membership and check the Moodle gradebook.", "red")`**
 
+Bear peer-feedback forms
 
- 
 
-# For today
+# Announcements
 
-* What did we do last week?
-* Data concepts
-* Recording data
-* Variables
-* Group activity time
 
 
+This is a short week.
 
+Chapter 4 has a lot of important information. 
 
-# Data: some key concepts
+We'll continue chapter 4 materials into next week.
 
-Data and *metadata*
-"Data without metadata is meaningless."
+The pre-class exercises for next week will include reading questions from chapters 4 and 5.
 
-But.... what is metadata?
 
 
-When we design data sheets, we should think like R:
 
-##Row format
-* Each row is an *observation*.
-* Each row contains columns for:
- * Metadata (who, where, etc.)
- * Explanatory variables
- * Response variables
+# Questions from the salamander exercise:
 
+* What is SVL?
+* Why is there a `$` in `mander`?
+* How is *central tendency* related to the *spread*?
+* How do we define *quartiles*?
+* Loading data files into R
+* In-class R instruction
 
-Sampling Units: This is a subtle concept, we'll keep returning to it throughout the course.
 
 
 
+# Describing Data
 
-# Important concepts in data entry
+What are two ways to summarize a collection of numbers?
 
-What are some important questions your data sheets should answer?
+* Central tendency
+* Dispersion
 
-* Who, what, where, when
-* Variables (there may be multiple variables in each category)
-* Notes: unusual conditions, etc.
- 
-Which of these could be considered *metadata*?
 
-It's better to record all of the data and other observations that could be relevant later, even
-if you don't end up using all of the information for your analyses.
 
 
+# Central Tendencies
 
+`r bold_col("Mean", "grn")` is the arithmetic average.
 
+* The sum of all the quantities divided by the count of quantities
 
-# Bears/poops group time
+`r bold_col("Median", "grn")` is the middle value.  There are the same number of observations that are less than and greater than the **`r colorize("median", "grn")`**.
 
-I sincerely apologize for the technical issues last class.  Thank you all for bearing with me.
+* If there are an *even* number of observations, the median is the average of the 2 central values.
 
-General questions?
+`r bold_col("Mode", "grn")` is the quantity that appears most frequently.
 
-Remember the peer evaluations.  They will be available on Moodle starting Thursday.
+* The mode is not always well-defined, for example if there are no repeated values, or if there are ties.
 
 
 
+# Mean
 
-# Why do we need to sample?
+Mean values are often written as variables with a *bar* symbol.  The value of x-bar can be calculated from a collection of quantities **x**.
 
-\begin{center}
-\includegraphics[width = 0.88\textwidth]{../slide_images/question_mark_green.png}
-\end{center}
+$$\bar{x} = \frac{\sum{x}_{i}}{n}$$
 
+How do we read this equantion?
 
 
 
 
-# Variables: key concepts
+# Properties of the mean
 
-Several pairs of terms are often used to describe different types of variables:
+`r colorize("Mean", "grn")` is a good measure of central tendency when data have a **symmetrical** distribution.
 
-* Independent/dependent
-* Predictor/response
-* Explanatory/response
+* For example, Normally-distributed data
 
-What do they mean?
+It's easy to calculate the mean value of a vector in R using the funciton `mean()`.
 
-What are some important data types?
 
 
 
 
-# Variables example: Can you identify the predictor and response?
+# Median
 
-```{r, echo = FALSE, include = FALSE}
-dat = read.csv("data/cedar_creek_survey.csv")
-require(ggplot2)
-gg = ggplot(dat, aes(x = Total.Individuals, y = Distinct.Species.Count))
+`r colorize("Median", "grn")` is a good choice when data are skewed.
 
-```
-```{r, echo = FALSE, fig.asp = 0.6, warning=FALSE}
-# plot(
-#   Distinct.Species.Count ~ Total.Individuals, 
-#   data = dat,
-#   xlab = "Total Number of Individuals",
-#   ylab = "Number of Distinct Species",
-#   main = "Cedar Creek Rarefaction: Preliminary Data Exploration",
-#   pch = 16,
-#   cex = 1
-#   )
+Why?
 
+In R it's super easy with the `median()` function.
 
-gg +
-  geom_point() +
-  xlab("Count of Individuals") +
-  ylab("Count of Distinct Species") +
-  ggtitle("Cedar Creek Rarefaction: Preliminary Data Exploration") +
-  theme(text = element_text(size = 22))
 
-```
 
 
 
-# What to record?
+# Mode
 
-The metadata:
+`r colorize("Mode", "grn")` is the most commonly occurring quantity.
 
-\begin{enumerate}
-\item Who recorded the data
-\item What is the *sampling unit*
-\item Where was the data recorded
-\item When was the data recorded
-\end{enumerate}
+Mode can be more difficult to use.
 
+What is the mode of the sequence of numbers?
 
+3, 4, 8, 123, 6, 1239888
 
 
+There isn't a simple function in R!  We can write a custom function... but we probably won't need to calculate modes in this course.
 
-# What to record?
 
-The data (i.e. the variables):
 
-\begin{enumerate}
-  \item Response Variable 
-  \begin{enumerate}
-    \item the variable of interest you are trying to estimate 
-    \item similar to/or sometimes called the “dependent variable”
-  \end{enumerate}
-  \item Explanatory Variables
-  \begin{enumerate}
-    \item Variables that influence the response variable
-    \item similar to/or sometimes called the “independent variables” or “predictor variable”
-  \end{enumerate}
-\end{enumerate}
 
+# Dispersion
 
+Dispersion, or spread, quantifies the degree to which the individual values in a set of quantities are different from one another.
 
+There are several ways we could measure dispersion.  We've talked about some dispersion measures in class:
 
-# Some examples of variables
+* range
+* standard deviation (and variance)
 
-Can you identify the predictor and response variables in these *models*?
+Calculating the variance and standard deviation is more complicated than calculating means.
 
-From high school math, you might remember the equation for a line:
-\begin{equation}
-   \label{eq:example-equation}
-   y = mx + b
-\end{equation}
 
 
-We'll learn all about statistical models of the form:
-\begin{equation}
-   \label{eq:example-equation}
-   y_{i} = \alpha + \beta_{1} \times x_{i1} + \beta_{2} \times x_{i2} + \epsilon
-\end{equation}
+# Variance and standard deviation
 
+Standard deviation is the square root of **`r colorize("Variance", "grn")`.
 
-Why did I call these equations models?
+Let's look at the formula for variance and see if we can figure out why the square root is useful:
+
+
+$$var(x) = \frac{1}{N}\sum\limits_{i = 1}^N {\left( {x_i - \bar x} \right)^2 } $$
+
+That looks a lot more complicated than the mean formula!
+
+What are the units of *variance*?
+
+
+
+
+# Variance and standard deviation
+
+If we are measuring height in meters, what are the units of *variance*?
+
+If we measure mass in grams, how can we interpret grams squared?
+
+Variance is difficult to interpret directly.  The square root, i.e. standard deviation, is usually more meaningful.
+
+
+
+
+# Properties of variance and standard deviation
+
+
+Variance cannot be negative.
+
+A verbal definition of sample variance is:  "The average squared deviation from the mean value."
+
+The *squared deviation* is a key property.  Can the square of a number ever be *negative*?
+
+This definition for variance will make more intuitive sense when we look at Simple Linear Regression.
+
+
+
+
+# Properties of variance and standard deviation
+
+If data are Normally-distributed, the standard deviation has some very useful properties:
+
+* approximately 68% of all observations fall within 1 standard deviation of the mean.
+* approximately 95% of all observations fall within 2 standard deviations of the mean.
+
+
+
+
+
+# Group Activity:  Random numbers
+
+
+Self-select groups of 3 or 4.
+
+Follow the instructions on Moodle.
+
+Submit a single report for the group.
+
+
+
+
+
+
+
+
+
+# Quantiles and Quartiles
+
+Sometimes called *percentiles*.
+
+Quantilies are calculated by placing all of the observations in ascending order.
+
+Let $$x$$ be the value for which we want to calculate a quantile.
+
+The quantile of %%x%% is the count of observations less than %%x%% divided by the total count of observations (*n*).
+
+* Quantiles may be calculated with *n* or *n - 1*.
+
+
+
+
+# Quantiles and quartiles
+
+What is another name for the 50% quantile?
+
+What are quartiles?
+
+
+
+
+

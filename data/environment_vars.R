@@ -6,6 +6,14 @@ colorize <- function(x, color) {
   } else x
 }
 
+bold_col <- function(x, color) {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textbf{\\textcolor{%s}{%s}}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'>%s</span>", color, x)
+  } else x
+}
+
 
 # book_data = "/data/Fletcher_Fortin-2018-Supporting_Files/data/"
 
