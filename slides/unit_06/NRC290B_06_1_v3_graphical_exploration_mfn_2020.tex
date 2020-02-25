@@ -1,0 +1,219 @@
+\documentclass[ignorenonframetext,t]{beamer}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolsempty
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+\usecolortheme{spruce}
+\usefonttheme{serif}
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\newif\ifbibliography
+\hypersetup{
+            pdftitle={Week 5: Exploring Data},
+            colorlinks=true,
+            linkcolor=Maroon,
+            citecolor=Blue,
+            urlcolor=blue,
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+
+% Prevent slide breaks in the middle of a paragraph:
+\widowpenalties 1 10000
+\raggedbottom
+
+\AtBeginPart{
+  \let\insertpartnumber\relax
+  \let\partname\relax
+  \frame{\partpage}
+}
+\AtBeginSection{
+  \ifbibliography
+  \else
+    \let\insertsectionnumber\relax
+    \let\sectionname\relax
+    \frame{\sectionpage}
+  \fi
+}
+\AtBeginSubsection{
+  \let\insertsubsectionnumber\relax
+  \let\subsectionname\relax
+  \frame{\subsectionpage}
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+\usepackage{multicol}
+\usepackage{tikz}
+\usepackage{tikzpagenodes}
+\definecolor{grn}{rgb}{0.0, 0.2, 0.0}
+\usepackage{tabto}
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\definecolor{OG}{RGB}{0,64,8}
+\definecolor{LG}{RGB}{0,102,51}
+\definecolor{myRed}{RGB}{228,26,28}
+\definecolor{myBlue}{RGB}{55,126,184}
+\definecolor{myGreen}{RGB}{77,175,74}
+\definecolor{myPurple}{RGB}{152,78,163}
+\setbeamercolor{itemize item}{fg=white!0!LG}
+\setbeamercolor{enumerate item}{fg=white!0!LG}
+\setbeamercolor{enumerate subitem}{fg=white!70!LG}
+\setbeamercolor{itemize subitem}{fg=white!70!LG}
+\setbeamercolor{itemize subsubitem}{fg=white!70!LG}
+\setbeamercolor{navigation symbols}{fg=white!70!LG, bg=white!70!LG}
+\usepackage{inputenc}
+\usepackage{booktabs}
+\usepackage{caption}
+\usetikzlibrary{patterns,arrows,decorations.pathreplacing}
+
+\title{Week 5: Exploring Data}
+\subtitle{Session 1}
+\date{Spring 2020}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}
+
+\newcommand\nnn{\includegraphics[height=0.25in]{iClicker_logo.png}}
+
+
+\end{frame}
+
+\begin{frame}[fragile]{iClicker Question \textcolor{blue}{1}}
+
+Which of the following should I use to read the file \texttt{mydata.csv}
+into a data frame called \texttt{dat} in R?
+
+\begin{enumerate}[A]
+\item \texttt{dat = read.csv(mydata.csv)}
+\item \texttt{read.csv(mydata.csv)}
+\item \texttt{dat = read.csv("mydata.csv")}
+\item \texttt{read.csv(mydata.csv, row.names = 1)}
+\item \texttt{read.csv("mydata.csv")}
+\end{enumerate}
+
+\nnn
+
+\end{frame}
+
+\begin{frame}{iClicker Question \textcolor{blue}{2}}
+
+Which symbol do we use to represent the \textbf{sample mean}?
+
+\begin{enumerate}[A]
+\item $\sigma$
+\item $\bar s$
+\item $\bar{x}$
+\item $\mu$
+\item $\bar{m}$
+\end{enumerate}
+
+\vfill
+
+\begin{tikzpicture}[remember picture,overlay]
+\node[xshift=-2cm,yshift=1cm] at (current page.south east)
+{\includegraphics[height=0.25in]{iClicker_logo.png}};
+\end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}{iClicker Question \textcolor{blue}{3}}
+
+Which symbol do we use to represent the \textbf{population mean}?
+
+\begin{enumerate}[A]
+\item $\sigma$
+\item $\bar s$
+\item $\bar{x}$
+\item $\mu$
+\item $\bar{m}$
+\end{enumerate}
+
+\vfill
+
+\begin{tikzpicture}[remember picture,overlay]
+\node[xshift=-2cm,yshift=1cm] at (current page.south east)
+{\includegraphics[height=0.25in]{../slide_images/iClicker_logo.png}};
+\end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}{iClicker Question \textcolor{blue}{4}}
+
+Which plot type is most appropriate to show the \textbf{distribution} of
+a set of measurements?
+
+\begin{enumerate}[A]
+\item scatterplot
+\item boxplot
+\item barchart
+\item histogram
+\item pie chart
+\end{enumerate}
+
+\vfill
+
+\begin{tikzpicture}[remember picture,overlay]
+\node[xshift=-2cm,yshift=1cm] at (current page.south east)
+{\includegraphics[height=0.25in]{../slide_images/iClicker_logo.png}};
+\end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}[fragile]{iClicker Question \textcolor{blue}{5}}
+
+Which of the following lines of code will make a scatterplot of the
+dataframe with length on the x-axis and mass on the y-axis?
+
+\begin{verbatim}
+##      length     width mass
+## 1 0.7209039 2.8777226   37
+## 2 0.8757732 1.6052823   29
+## 3 0.7609823 0.4713699   19
+\end{verbatim}
+
+\begin{enumerate}[A]
+\item \texttt{plot(dat\$mass, dat\$length)}
+\item \texttt{scatter(dat\$length, dat\$mass)}
+\item \texttt{boxplot(dat\$length, dat\$mass, type = "p")}
+\item \texttt{dotplot(dat\$length, dat\$mass)}
+\item \texttt{plot(dat\$length, dat\$mass)}
+\end{enumerate}
+
+\vfill
+
+\begin{tikzpicture}[remember picture,overlay]
+\node[xshift=-2cm,yshift=1cm] at (current page.south east)
+{\includegraphics[height=0.25in]{../slide_images/iClicker_logo.png}};
+\end{tikzpicture}
+
+\end{frame}
+
+\end{document}

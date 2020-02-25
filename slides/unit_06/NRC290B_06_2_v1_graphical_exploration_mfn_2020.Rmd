@@ -254,10 +254,15 @@ head(dat, 3)
 
 ## Announcements
 
-Trying a different slide layout today
+Week 5 reading assignment question # 1:
 
+*"What is the difference between parametric and a non-parametric distribution?"*
 
+This question is inconsistent with reality and with the reading in chapter 5
 
+Question 3:  In R, what would be returned if you compute the mean value of a vector containing the following values: 4, 9, 2, 13, NA, 9? Please describe your methods.
+
+Is there a benefit to having mean() fail when you pass an NA?
 
 ## Graphical exploration
 
