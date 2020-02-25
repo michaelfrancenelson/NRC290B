@@ -1,0 +1,232 @@
+---
+title: "Week 5: Exploring Data"
+subtitle:  "Session 1"
+date: Spring 2020
+output: 
+  beamer_presentation:
+    highlight: tango
+    theme: "default"
+    colortheme: "spruce"
+    fonttheme: "serif"
+    slide_level: 2
+    incremental: false
+header-includes: 
+  \usepackage{multicol}
+  \definecolor{grn}{rgb}{0.0, 0.2, 0.0}
+
+---
+
+```{r setup, echo=FALSE, results='hide', message=FALSE}
+require(knitr)
+require(here)
+# tmp = rprojroot::find_rstudio_root_file()
+# knitr::opts_chunk$set(root.dir = tmp, error = TRUE)
+# knitr::opts_knit$set(echo = TRUE, error = TRUE, root.dir = tmp)
+source(here("data", "environment_vars.R"))
+# source(paste0(tmp, "/data/environment_vars.R"))
+# rm(tmp)
+
+
+set.seed(12345)
+
+custom_hist = function(x, y, xlab = "", ylab = "", main = "", col = 2)
+{
+  h = hist(1:(2 * length(x)), breaks = length(x), plot = FALSE)
+  
+  h$breaks = 2 * (0:length(x))
+  h$mids = 2 * (0:(length(x) - 1)) + 1
+  h$density = y
+  h$counts = y
+  plot(h, main = main, xlab = xlab, ylab = ylab, col = col, axes = F)
+}
+
+n_bins = 19
+x = seq(0, 1, length.out = n_bins)
+
+i = 1;
+nrow = 10
+dat = data.frame(length = runif(n = nrow), width = rexp(nrow), mass = rpois(nrow, 34))
+
+
+```
+
+
+
+
+# iClicker quiz: Question `r colorize(i, "blue")` `r i = i + 1`
+
+Which of the following should I use to read the file `mydata.csv` into a data frame called `dat` in R?
+
+\begin{enumerate}[A]
+\item `dat = read.csv(mydata.csv)`
+\item `read.csv(mydata.csv)`
+\item `dat = read.csv("mydata.csv")`
+\item `read.csv(mydata.csv, row.names = 1)`
+\item `read.csv("mydata.csv")`
+\end{enumerate}
+
+<!-- \begin{multicols}{2} -->
+<!-- \null \vfill -->
+<!-- \vfill \null -->
+<!-- \columnbreak -->
+<!-- \includegraphics[width = 0.35\textwidth]{../slide_images/iClicker_logo.png} -->
+
+<!-- \end{multicols} -->
+
+
+\vfill
+
+\begin{tikzpicture}[remember picture,overlay]
+\node[xshift=-2cm,yshift=1cm] at (current page.south east)
+{\includegraphics[height=0.25in]{../slide_images/iClicker_logo.png}};
+\end{tikzpicture}
+
+
+
+
+<!-- # iClicker quiz: Question  `r colorize(i, "blue")` `r i = i + 1` -->
+
+<!-- Which symbol do we use to represent the **sample mean**? -->
+
+
+<!-- \begin{enumerate}[A] -->
+<!-- \item $\sigma$ -->
+<!-- \item $\bar s$  -->
+<!-- \item $\bar{x}$ -->
+<!-- \item $\mu$ -->
+<!-- \item $\bar{m}$ -->
+<!-- \end{enumerate} -->
+
+<!-- \begin{multicols}{2} -->
+<!-- \null \vfill -->
+<!-- \vfill \null -->
+<!-- \columnbreak -->
+<!-- \includegraphics[width = 0.35\textwidth]{../slide_images/iClicker_logo.png} -->
+
+<!-- \end{multicols} -->
+
+
+
+
+
+<!-- # iClicker quiz: Question  `r colorize(i, "blue")` `r i = i + 1` -->
+
+<!-- Which symbol do we use to represent the **population mean**? -->
+
+
+<!-- \begin{enumerate}[A] -->
+<!-- \item $\sigma$ -->
+<!-- \item $\bar s$  -->
+<!-- \item $\bar{x}$ -->
+<!-- \item $\mu$ -->
+<!-- \item $\bar{m}$ -->
+<!-- \end{enumerate} -->
+
+<!-- \begin{multicols}{2} -->
+<!-- \null \vfill -->
+<!-- \vfill \null -->
+<!-- \columnbreak -->
+<!-- \includegraphics[width = 0.35\textwidth]{../slide_images/iClicker_logo.png} -->
+
+<!-- \end{multicols} -->
+
+
+
+
+
+
+<!-- # iClicker quiz: Question  `r colorize(i, "blue")` `r i = i + 1` -->
+
+<!-- Which plot type is most appropriate to show the **distribution** of a set of measurements? -->
+
+
+<!-- \begin{enumerate}[A] -->
+<!-- \item scatterplot -->
+<!-- \item boxplot -->
+<!-- \item barchart -->
+<!-- \item histogram -->
+<!-- \item pie chart -->
+<!-- \end{enumerate} -->
+
+<!-- \begin{multicols}{2} -->
+<!-- \null \vfill -->
+<!-- \vfill \null -->
+<!-- \columnbreak -->
+<!-- \includegraphics[width = 0.35\textwidth]{../slide_images/iClicker_logo.png} -->
+
+<!-- \end{multicols} -->
+
+
+
+
+
+<!-- # iClicker quiz: Question `r colorize(i, "blue")` `r i = i + 1` -->
+
+<!-- Which of the following lines of code will make a scatterplot of the dataframe with length on the x-axis and mass on the y-axis? -->
+
+<!-- ```{r, echo = FALSE} -->
+<!-- head(dat, 3) -->
+<!-- ``` -->
+
+<!-- \begin{enumerate}[A] -->
+<!-- \item \texttt{plot(dat\$mass, dat\$length)} -->
+<!-- \item \texttt{scatter(dat\$length, dat\$mass)} -->
+<!-- \item \texttt{boxplot(dat\$length, dat\$mass, type = "p")} -->
+<!-- \item \texttt{dotplot(dat\$length, dat\$mass)} -->
+<!-- \item \texttt{plot(dat\$length, dat\$mass)} -->
+<!-- \end{enumerate} -->
+
+<!-- \begin{multicols}{2} -->
+<!-- \null \vfill -->
+<!-- \vfill \null -->
+<!-- \columnbreak -->
+<!-- \includegraphics[width = 0.35\textwidth]{../slide_images/iClicker_logo.png} -->
+
+<!-- \end{multicols} -->
+
+
+
+
+
+<!-- # Announcements -->
+
+
+<!-- This is a short week. -->
+
+<!-- Chapter 4 has a lot of important information.  -->
+
+<!-- We'll continue chapter 4 materials into next week. -->
+
+<!-- The pre-class exercises for next week will include reading questions from chapters 4 and 5. -->
+
+
+
+
+
+
+<!-- # Why do we plot our data -->
+<!-- \begin{center} -->
+<!--     \includegraphics[width = 0.88\textwidth] -->
+<!--         {`r here(img_dir, "question_mark_green.png")`} -->
+<!-- \end{center} -->
+
+
+
+
+
+
+
+
+<!-- # Questions from the salamander exercise: -->
+
+<!-- * What is SVL? -->
+<!-- * Why is there a `$` in `mander`? -->
+<!-- * How is *central tendency* related to the *spread*? -->
+<!-- * How do we define *quartiles*? -->
+<!-- * Loading data files into R -->
+<!-- * In-class R instruction -->
+
+
+
+
+
