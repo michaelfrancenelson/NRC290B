@@ -1,0 +1,77 @@
+'r yaml_front_matter("default.yaml")'
+---
+title: "Week 6: Graphical Data Exploriation"
+subtitle:  "Session 2"
+date: Spring 2020
+# root_path: !r here::here()
+# format_path: "{{ root_path }}/css"
+# template: ../css/chris_slidess.yaml
+# include_vars:
+#   file: ../css/chris_slidess.yaml
+# headerincludes:
+  # file: ../css/chris_slidess.yaml
+# template: "{{ format_path }}/chris_slidess.yaml"
+
+---
+
+
+```{r setup, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
+require(knitr)
+require(here)
+source(here("data", "environment_vars.R"))
+
+i = 1;
+set.seed(12345)
+nrow = 10
+dat = data.frame(length = runif(n = nrow), width = rexp(nrow), mass = rpois(nrow, 34))
+
+
+randhist = function() {
+  # dev.off()
+  par(mfrow=c(1,2), oma=c(0,0,0,0), mar=c(4,4,1,1))
+  set.seed(123)
+  hist(rnorm(300,50,10), col="orange", xlab="Values", main="", las=1, ylim=c(0,70),xlim=c(10,90))
+  box(bty="l")
+  plot(0,0,type="n",axes=F,xlab="",ylab="")
+}
+
+
+randhist()
+```
+
+
+## iClicker Question `r colorize(i, "blue")` `r i = i + 1`
+
+Which of the following should I use to read the file `mydata.csv` into a data frame called `dat` in R?
+
+\begin{enumerate}[A]
+\item \texttt{dat = read.csv(mydata.csv)}
+\item \texttt{read.csv(mydata.csv)}
+\item \texttt{dat = read.csv("mydata.csv")}
+\item \texttt{read.csv(mydata.csv, row.names = 1)}
+\item \texttt{read.csv("mydata.csv")}
+\end{enumerate}
+
+
+<!-- \vfill -->
+<!-- \begin{tikzpicture}[remember picture,overlay] -->
+<!-- \node[xshift=-2cm,yshift=1cm] at (current page.south east) -->
+<!-- {\includegraphics[height=0.25in]{`r randhist()`}}; -->
+<!-- \end{tikzpicture} -->
+
+
+
+<!-- ## Beyond graphs, Towards statistics -->
+
+<!-- - Graphs are powerful tools that provide insight and understanding of the patterns and relationships in the data. -->
+
+<!-- - Don't give us the answer though: -->
+<!-- - are differences *significant*? -->
+<!-- - are associations *significatnt*? -->
+
+<!-- \begin{tikzpicture}[remember picture,overlay] -->
+<!-- \node[yshift=3cm] at (current page.south) -->
+<!-- {\includegraphics[height=2in]{`r here(slide_img_dir, "salbox.pdf")`}}; -->
+<!-- \end{tikzpicture} -->
+
+<!-- ## Beyond graphs, Towards statistics -->

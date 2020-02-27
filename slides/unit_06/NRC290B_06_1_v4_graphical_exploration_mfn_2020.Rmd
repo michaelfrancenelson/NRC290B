@@ -1,5 +1,5 @@
 ---
-title: "Week 5: Exploring Data"
+title: "Week 6: Graphical Data Exploration"
 subtitle:  "Session 1"
 date: Spring 2020
 output:
@@ -391,10 +391,18 @@ plot(bear.run, type="l") #"l": line, "p": points, "b": both
 lines(poop.run)
 ```
 
+<!-- `r here(slide_img_dir, "runavg.pdf")` -->
+<!-- `r plot(bp$Poop, lwd=2,col=4,bty="l",las=1,ylab="Running Average", xlab="no. of samples", ylim=c(0,2), type="l");     lines(bp$Bear, lwd=2,col=2,bty="l",las=1,ylab="Running Average", xlab="no. of samples");                abline(h=mean(bp$Bear), lty=2, col=2);                abline(h=mean(bp$Poop), lty=2, col=4); legend("bottomright", lwd=2,col=c(4,2),legend=c("Poop","bear"), bty="n")` -->
 
 \begin{tikzpicture}[remember picture,overlay]
 \node[yshift=4cm] at (current page.south)
-{\includegraphics[height=3in]{`r here(slide_img_dir, "runavg.pdf")`}};
+{\includegraphics[height=3in]{
+```{r}
+plot(bp$Poop, lwd = 2, col = 4, bty = "l", las = 1, ylab = "Running Average", xlab = "no. of samples", ylim = c(0,2), type = "l")
+lines(bp$Bear, lwd=2, col=2, bty="l", las=1, ylab = "Running Average", xlab = "no. of samples")
+abline(h = mean(bp$Bear), lty=2, col=2)
+```
+}};
 \end{tikzpicture}
 
 ## Differences

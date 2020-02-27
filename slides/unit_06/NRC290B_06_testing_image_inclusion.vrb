@@ -1,0 +1,13 @@
+\frametitle{iClicker Question \textcolor {blue}{1}}
+
+Which of the following should I use to read the file \texttt{mydata.csv}
+into a data frame called \texttt{dat} in R?
+
+\begin{enumerate}[A]
+\item \texttt{dat = read.csv(mydata.csv)}
+\item \texttt{read.csv(mydata.csv)}
+\item \texttt{dat = read.csv("mydata.csv")}
+\item \texttt{read.csv(mydata.csv, row.names = 1)}
+\item \texttt{read.csv("mydata.csv")}
+\end{enumerate}
+

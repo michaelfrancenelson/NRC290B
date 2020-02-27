@@ -1,0 +1,8 @@
+output:
+  beamer_presentation:
+    highlight: tango
+    theme: "default"
+    colortheme: "spruce"
+    fonttheme: "serif"
+    slide_level: 2
+    incremental: false
