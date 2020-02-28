@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.1.22)  27 FEB 2020 17:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.1.22)  28 FEB 2020 08:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1120,7 +1120,7 @@ File: pgfmodulematrix.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 (c:/Users/michaelnelso/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/front
 endlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-))))
+)))
 (c:/Users/michaelnelso/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/cap
 tion.sty
 Package: caption 2020/01/03 v3.4h Customizing captions (AR)
@@ -1144,7 +1144,44 @@ Package caption Info: beamer document class.
 Package caption Info: hyperref package is loaded.
 Package caption Info: Hyperref support is turned off
 (caption)             because hyperref has stopped early.
-) (./testing_beamer_features_2.aux)
+)
+(c:/Users/michaelnelso/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/front
+endlayer/tikz/libraries/tikzlibrarypatterns.code.tex
+File: tikzlibrarypatterns.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+
+(c:/Users/michaelnelso/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/libra
+ries/pgflibrarypatterns.code.tex
+File: pgflibrarypatterns.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+))
+(c:/Users/michaelnelso/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/front
+endlayer/tikz/libraries/tikzlibraryarrows.code.tex
+File: tikzlibraryarrows.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+
+(c:/Users/michaelnelso/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/libra
+ries/pgflibraryarrows.code.tex
+File: pgflibraryarrows.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\arrowsize=\dimen269
+))
+(c:/Users/michaelnelso/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/front
+endlayer/tikz/libraries/tikzlibrarydecorations.pathreplacing.code.tex
+(c:/Users/michaelnelso/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/front
+endlayer/tikz/libraries/tikzlibrarydecorations.code.tex
+(c:/Users/michaelnelso/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/modul
+es/pgfmoduledecorations.code.tex
+\pgfdecoratedcompleteddistance=\dimen270
+\pgfdecoratedremainingdistance=\dimen271
+\pgfdecoratedinputsegmentcompleteddistance=\dimen272
+\pgfdecoratedinputsegmentremainingdistance=\dimen273
+\pgf@decorate@distancetomove=\dimen274
+\pgf@decorate@repeatstate=\count172
+\pgfdecorationsegmentamplitude=\dimen275
+\pgfdecorationsegmentlength=\dimen276
+)
+\tikz@lib@dec@box=\box61
+)
+(c:/Users/michaelnelso/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pgf/libra
+ries/decorations/pgflibrarydecorations.pathreplacing.code.tex))) (./testing_bea
+mer_features_2.aux)
 \openout1 = `testing_beamer_features_2.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 122.
@@ -1231,7 +1268,7 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 )) ABD: EveryShipout initializing macros
-\AtBeginShipoutBox=\box61
+\AtBeginShipoutBox=\box62
 Package hyperref Info: Link coloring OFF on input line 122.
 
 (c:/Users/michaelnelso/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/na
@@ -1246,7 +1283,7 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 tring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count172
+\c@section@level=\count173
 )
 LaTeX Info: Redefining \ref on input line 122.
 LaTeX Info: Redefining \pageref on input line 122.
@@ -1295,12 +1332,12 @@ p/pdftex.map}] [2
 l.144 \end{frame}
                   
 Here is how much of TeX's memory you used:
- 22377 strings out of 494106
- 444174 string characters out of 6171746
- 492875 words of memory out of 5000000
- 25964 multiletter control sequences out of 15000+600000
+ 23460 strings out of 494106
+ 478184 string characters out of 6171746
+ 517064 words of memory out of 5000000
+ 27022 multiletter control sequences out of 15000+600000
  19968 words of font info for 22 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 54i,11n,57p,829b,396s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 54i,11n,71p,829b,396s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 !  ==> Fatal error occurred, no output PDF file produced!

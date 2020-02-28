@@ -3,10 +3,10 @@ title: "testing"
 subtitle:  "Session 1"
 date: "`r format (Sys.time(), format='%Y-%m-%d %H:%M:%S %z')`"
 output:
-  beamer_presentation:
-    pandoc_args: !expr paste0(here::here('css', 'beamer.yaml'))
+ beamer_presentation:
+  pandoc_args: !expr paste0(here::here('css', 'beamer.yaml'))
 header-includes: 
-  \input{`r here::here("css", "headers_tikz.yaml")`}
+ \input{`r here::here("css", "headers_tikz.yaml")`}
 ---
 
 
