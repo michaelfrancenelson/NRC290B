@@ -1,10 +1,10 @@
 ---
 title: "Graphical data exploration"
 author: "Michael France Nelson"
-date: "February, 2020"
+date: "Spring, 2020"
 output: 
   html_document:
-    css: ../../css/styles.css
+    css: !expr here::here("css", "styles.css")
     number_sections: TRUE
     toc: true
     toc_float: true

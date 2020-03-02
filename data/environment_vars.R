@@ -19,6 +19,9 @@ bold_col <- function(x, color) {
 slide_img_dir = "slides/slide_images"
 chris_img_dir = "Images"
 chris_dat_dir = "data/chris_data"
+
+due_date_format = "%A, %B %d %Y at %I:%M PM"
+
 # book_data = "/data/Fletcher_Fortin-2018-Supporting_Files/data/"
 
 # Store data locally:

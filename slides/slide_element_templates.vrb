@@ -1,0 +1,10 @@
+\frametitle{Image File Code}
+\protect\hypertarget{image-file-code}{}
+
+\begin{verbatim}
+\begin{center}
+    \includegraphics[width = 0.88\textwidth]
+        {`r here(img_dir, "question_mark_green.png")`}
+\end{center}
+\end{verbatim}
+
