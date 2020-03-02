@@ -224,6 +224,10 @@ Week 5 reading assignment question # 1:
 
 "What is the difference between parametric and a non-parametric distribution?"
 
+
+
+## Follow-up questions from the Chapter 5 homework
+
 * The book's explanation of *parametric distribution* is slightly misleading.  The reading characterizes the Normal distribution as a parametric distribution, however there are many *parametric distributions*.  I like to use the term *theoretical distributions* when I'm describing *parametric distributions* to emphasize that they are precisely mathematically defined.  The behavior of *parametric distributions* is governed by 1 or more *parameters* in the probability functions.
 
 * What is a **non-parametric distribution**?

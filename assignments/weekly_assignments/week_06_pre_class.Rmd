@@ -13,6 +13,8 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(root.dir = here(), error = TRUE)
+knitr::opts_knit$set(echo = TRUE, error = TRUE, root.dir = here())
 require(here)
 source(here("data", "environment_vars.R"))
 
@@ -89,18 +91,37 @@ Each figure is worth 15 points, allocated as follows:
 
 ```{r possible answers, eval=FALSE, include = FALSE}
 
+dir.exists("data")
+file.exists("data/butterfly-table.csv")
 dat = read.csv("data/butterfly-table.csv", row.names = 1)
-barplot(as.matrix(dat), beside = T)
 
-
-dat2 = read.csv("data/butterfly-table.csv")
 head(dat)
-head(dat2)
 
-dat
-barplot(as.matrix(dat))
-barplo
+barplot(as.matrix(dat), beside = T)
+barplot(as.matrix(dat), beside = F)
 
+# Alphonsus's question
+
+survey_years = c("1996", "2000")
+
+barplot(
+  as.matrix(dat[, paste0("X", survey_years)]),
+  legend.text = rownames(dat),
+  ylim = c(0, 590),
+  xlab = "survey year",
+  ylab = "count",
+  main = "Butterfly Survey",
+  names.arg = survey_years,,
+  col = terrain.colors(nrow(dat)),
+  beside = F, 
+  args.legend = list(ncol = 3, title = "species"))
+
+# This reads the first row as a character vector, so as.matrix doesn't work as expected.
+dat2 = read.csv("data/butterfly-table.csv")
+````
+
+
+```{r possible answers2, eval=FALSE, include = FALSE}
 # A barplot - inspired by Molly's plot
 
 butterfly_colors = rainbow(nrow(dat))

@@ -1,0 +1,141 @@
+---
+title: "Week 6: Graphical Data Exploriation"
+subtitle:  "Session 2"
+date: Spring 2020
+output:
+  beamer_presentation:
+    highlight: tango
+    theme: "default"
+    colortheme: "spruce"
+    fonttheme: "serif"
+    slide_level: 2
+    incremental: false
+urlcolor: blue
+classoption: t
+header-includes: 
+ - \usepackage{multicol}
+ - \usepackage{tikz}
+ - \usepackage{tikzpagenodes}
+ - \definecolor{grn}{rgb}{0.0, 0.2, 0.0}
+ - \usepackage{tabto}
+ - \usepackage{verbatim}
+ - \usepackage{amsmath}
+ - \usepackage{mathtools}
+ - \usepackage{graphicx}
+ - \definecolor{OG}{RGB}{0,64,8}
+ - \definecolor{LG}{RGB}{0,102,51}
+ - \definecolor{myRed}{RGB}{228,26,28}
+ - \definecolor{myBlue}{RGB}{55,126,184}
+ - \definecolor{myGreen}{RGB}{77,175,74}
+ - \definecolor{myPurple}{RGB}{152,78,163}
+ - \setbeamercolor{itemize item}{fg=white!0!LG}
+ - \setbeamercolor{enumerate item}{fg=white!0!LG}
+ - \setbeamercolor{enumerate subitem}{fg=white!70!LG}
+ - \setbeamercolor{itemize subitem}{fg=white!70!LG}   
+ - \setbeamercolor{itemize subsubitem}{fg=white!70!LG}   
+ - \setbeamercolor{navigation symbols}{fg=white!70!LG, bg=white!70!LG}
+ - \usepackage{inputenc}
+ - \usepackage{booktabs}
+ - \usepackage{caption}
+ - \usetikzlibrary{patterns,arrows,decorations.pathreplacing}
+---
+
+
+```{r setup, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
+require(knitr)
+require(here)
+source(here("data", "environment_vars.R"))
+```
+
+\newcommand{\iclick}{
+  \vfill
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[xshift=-2cm,yshift=1cm] at (current page.south east)
+    {\includegraphics[height=0.25in]{`r here("slides", "slide_images", "iClicker_logo.png")`}};
+  \end{tikzpicture}
+}
+
+
+
+
+## iClicker Question `r colorize(i, "blue")` `r i = i + 1`
+
+Which of the following should I use to read the file `mydata.csv` into a data frame called `dat` in R?
+
+\begin{enumerate}[A]
+\item \texttt{}
+\item \texttt{}
+\item \texttt{}
+\item \texttt{}
+\item \texttt{}
+\end{enumerate}
+
+\iclick
+
+
+
+
+
+# Announcements
+
+If you're feeling stuck, remember my office hours (Tuesday/Thursday 1 - 2).
+
+\begin{center}
+\includegraphics[width = 0.95\textwidth]{`r here("slides", "images", "betsy_tangled.jpg")`}
+\end{center}
+
+
+
+
+## Follow-up questions from the Chapter 6 homework
+
+
+## For Today
+
+
+
+
+## Beyond graphs, Towards statistics
+
+- Graphs are powerful tools that provide insight and understanding of the patterns and relationships in the data.
+
+- Don't give us the answer though:
+    - are differences *significant*?
+    - are associations *significatnt*?
+
+\begin{tikzpicture}[remember picture,overlay]
+\node[yshift=3cm] at (current page.south)
+{\includegraphics[height=2in]{`r here(slide_img_dir, "salbox.pdf")`}};
+\end{tikzpicture}
+
+## Beyond graphs, Towards statistics
+
+- Graphs are powerful tools that provide insight and understanding of the patterns and relationships in the data.
+
+- Don't give us the answer though:
+    - are differences *significant*?
+    - are associations *significatnt*?
+
+\begin{tikzpicture}[remember picture,overlay]
+\node[yshift=3cm] at (current page.south)
+{\includegraphics[height=2in]{`r here(slide_img_dir, "salscatter.pdf")`}};
+\end{tikzpicture}
+
+## Beyond graphs, Towards statistics
+
+- Graphs are powerful tools that provide insight and understanding of the patterns and relationships in the data.
+
+- Don't give us the answer though:
+    - are differences *significant*?
+    - are associations *significatnt*?
+   
+- Statistics is the tool we use to formally answer these questions!
+    - the differences *are*/*are not* significant!
+    - are associations *are*/*are not* significant!
+    
+
+
+
+
+
+
