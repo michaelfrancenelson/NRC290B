@@ -7,6 +7,8 @@ output:
     pandoc_args: !expr paste0(here::here('css', 'beamer.yaml'))
 header-includes:
   \input{`r here::here("css", "headers_tikz.tex")`}
+ # body-includes:
+  # \input{`r here::here("css", "newcommands.tex")`}
 ---
 
 ```{r setup, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
@@ -16,19 +18,91 @@ source(here("data", "environment_vars.R"))
 i = 1
 ```
 
+
 ## iClicker Question `r colorize(i, "blue")` `r i = i + 1`
-Which of the following should I use to read the file `mydata.csv` into a data frame called `dat` in R?
-\input{`r here::here("css", "newcommands.tex")`}
+<!-- \input{`r here::here("css", "newcommands.tex")`} -->
+
+Scenario: You want to know whether the growth rates of oak trees differ in two habitats.  You have two clones each of 37 different genotypes.  One clone of each genotype is planted in a mesic prairie, the other in an old agricultural field.
+
+- Which test should you use?
 
 \begin{enumerate}[A]
-\item \texttt{}
-\item \texttt{}
-\item \texttt{}
-\item \texttt{}
-\item \texttt{}
+\item \texttt{two-sample t-test}
+\item \texttt{Mann-Whitney paried test}
+\item \texttt{Mann-Whitney U test}
+\item \texttt{paired t-test}
 \end{enumerate}
 
 \logoSoutheast{`r here::here("slides", "slide_images", "iClicker_logo.png")`}
+
+
+
+## iClicker Question `r colorize(i, "blue")` `r i = i + 1`
+
+Scenario: You are testing whether Pennsylvania sedge (C. pennsylvanica) cover is greater under hardwoods or conifers.  You have collected percent cover data from 50 hardwood and 50 conifer patches at Mount Toby.
+
+- Which test should you use?
+
+\begin{enumerate}[A]
+\item \texttt{two-sample t-test}
+\item \texttt{Mann-Whitney paried test}
+\item \texttt{Mann-Whitney U test}
+\item \texttt{paired t-test}
+\end{enumerate}
+
+\logoSoutheast{`r here::here("slides", "slide_images", "iClicker_logo.png")`}
+
+
+
+## iClicker Question `r colorize(i, "blue")` `r i = i + 1`
+
+Scenario: You want to know whether the growth rates of oak trees differ in two habitats.  You think they will grow more quickly in a old agricultural field than in a mesic prairie.
+
+- Which is the best alternative hypothesis?
+
+\begin{enumerate}[A]
+\item \texttt{growth is faster in the prairie}
+\item \texttt{there is no difference in growth between habitats}
+\item \texttt{growth is faster in the field}
+\item \texttt{there is a difference in growth between habitats}
+\item \texttt{growth rates are the same}
+\end{enumerate}
+
+\logoSoutheast{`r here::here("slides", "slide_images", "iClicker_logo.png")`}
+
+
+
+## iClicker Question `r colorize(i, "blue")` `r i = i + 1`
+
+Scenario: You want to know whether the growth rates of oak trees differ in two habitats: an old agricultural field and mesic prairie.
+
+- Which is the best alternative hypothesis?
+
+\begin{enumerate}[A]
+\item \texttt{growth is faster in the prairie}
+\item \texttt{there is no difference in growth between habitats}
+\item \texttt{growth is faster in the field}
+\item \texttt{there is a difference in growth between habitats}
+\item \texttt{growth rates are the same}
+\end{enumerate}
+
+\logoSoutheast{`r here::here("slides", "slide_images", "iClicker_logo.png")`}
+
+
+
+<!-- ## iClicker Question `r colorize(i, "blue")` `r i = i + 1` -->
+
+<!-- Scenario: You calculate a t-value, and an associated p-value, for individual length in two populations of Daphnia.  Which critical significance category for the t-value would give you the best evidence that the two populations are different: -->
+
+<!-- \begin{enumerate}[A] -->
+<!-- \item \texttt{1%} -->
+<!-- \item \texttt{10%} -->
+<!-- \item \texttt{5%} -->
+<!-- \item \texttt{95%} -->
+<!-- \item \texttt{0%} -->
+<!-- \end{enumerate} -->
+
+<!-- \logoSoutheast{`r here::here("slides", "slide_images", "iClicker_logo.png")`} -->
 
 
 
@@ -99,7 +173,7 @@ Which of the following should I use to read the file `mydata.csv` into a data fr
     - Ahe differences *are*/*are not* significant!
     - Are associations *are*/*are not* significant!
     
-### But... what do we mean when we say **significant**?
+### Wait a second... what do we mean when we say **significant**?
     
 
 
