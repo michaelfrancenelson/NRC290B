@@ -275,7 +275,7 @@ Scenario:
 
 - How can we test if two groups of observations are different?
 
-- What kind's of tests do we know about?
+- What kinds of tests do we know about?
 
 - Which statistic(s) do the tests test for?
 
@@ -641,18 +641,4 @@ $$W^- = \sum R^-$$
 
 ## Group Assignment
 
-Using the whale count data, compare the differences between first and second abundance guesstimates using first `excel` and then `R`.
-
-Submit a single written group report that outlines the following points:
-
-1. state the null and alternative hypotheses being tested
-2. the reason for choosing the statistical test you used
-3. a summary of the results:
-    - degrees-of-freedom, test statistic, p-values (at 5% level)?
-    - did you accept or reject the null hypothesis?
-    - is there a difference?
-4. conduct the analysis in `R` and `excel` and submit:
-    - a written report of points 1, 2 and 3 as **PDF**
-    - an `excel` workbook showing your results
-    - a saved `R` file showing results
-
+Using the whale count data, complete the group assignment on Moodle.
