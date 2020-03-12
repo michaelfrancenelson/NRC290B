@@ -31,3 +31,14 @@
      };
    \end{tikzpicture}
 }
+\newcommand{\pic}[4]{
+  \begin{tikzpicture}[remember picture,overlay]
+  \node[xshift=#1cm,yshift=#2cm] at (current page)
+  {\includegraphics[height=#3cm]{#4}};
+  \end{tikzpicture}
+}
+\newcommand{\picOver}[5]{
+  \begin{tikzpicture}[overlay]
+  \node[inner sep=#1pt] (one) at (#2,#3) {\includegraphics[height=#4cm]{#5}};
+  \end{tikzpicture}
+}
